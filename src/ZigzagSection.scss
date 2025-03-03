@@ -1,0 +1,131 @@
+.zigzag-section {
+    padding: 100px 0;
+  }
+  
+  .zigzag-section:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  .zigzag-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .zigzag-section.reverse .zigzag-content {
+    flex-direction: row-reverse;
+  }
+  
+  .zigzag-image-container {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .zigzag-image-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .zigzag-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  
+  .zigzag-image-container:hover .zigzag-image {
+    transform: scale(1.05);
+  }
+  
+  .zigzag-text {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .zigzag-title {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #333;
+    position: relative;
+  }
+  
+  .zigzag-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #00a8cc;
+  }
+  
+  .zigzag-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .zigzag-link {
+    display: inline-block;
+    color: #00a8cc;
+    font-weight: 600;
+    text-decoration: none;
+    padding-bottom: 3px;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .zigzag-link:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #00a8cc;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  
+  .zigzag-link:hover {
+    color: #0088a9;
+  }
+  
+  .zigzag-link:hover:after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  /* Mobile Responsive */
+  @media screen and (max-width: 992px) {
+    .zigzag-content {
+      flex-direction: column-reverse;
+      gap: 30px;
+    }
+    
+    .zigzag-section.reverse .zigzag-content {
+      flex-direction: column-reverse;
+    }
+    
+    .zigzag-image {
+      height: 300px;
+    }
+    
+    .zigzag-title {
+      font-size: 1.8rem;
+    }
+    
+    .zigzag-description {
+      font-size: 1rem;
+    }
+    
+    .zigzag-section {
+      padding: 70px 0;
+    }
+  }

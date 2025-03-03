@@ -1,0 +1,327 @@
+// HomePage.scss
+
+// Base variables
+$primary-color: #2a7de1;
+$secondary-color: #34d399;
+$text-color: #333333;
+$light-gray: #f5f7fa;
+$dark-gray: #4a5568;
+$spacing-unit: 2rem;
+$container-max-width: 1200px;
+$border-radius: 8px;
+$transition-speed: 0.3s;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Mixins
+@mixin container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-unit;
+}
+
+@mixin section-padding {
+  padding: $spacing-unit*2 0;
+  
+  @media (min-width: $breakpoint-md) {
+    padding: $spacing-unit*3 0;
+  }
+}
+
+// Base styles
+.home-page {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  color: $text-color;
+  line-height: 1.6;
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: $spacing-unit;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  
+  p {
+    margin-top: 0;
+    margin-bottom: $spacing-unit;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  section {
+    @include section-padding;
+    
+    &:nth-child(even) {
+      background-color: $light-gray;
+    }
+  }
+}
+
+// Hero section
+.hero {
+  position: relative;
+  background-color: $primary-color;
+  color: white;
+  text-align: center;
+  padding: $spacing-unit*4 0;
+  overflow: hidden;
+  
+  &__container {
+    @include container;
+    position: relative;
+    z-index: 2;
+  }
+  
+  &__title {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-unit;
+    
+    @media (min-width: $breakpoint-md) {
+      font-size: 3.5rem;
+    }
+  }
+  
+  &__subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto $spacing-unit*2;
+  }
+  
+  &__cta {
+    display: inline-block;
+    background-color: $secondary-color;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: $border-radius;
+    text-decoration: none;
+    transition: all $transition-speed;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+  
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+  }
+}
+
+// Features section
+.features {
+  @include section-padding;
+  
+  &__container {
+    @include container;
+    text-align: center;
+  }
+  
+  &__title {
+    font-size: 2rem;
+    margin-bottom: $spacing-unit*2;
+  }
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-unit*1.5;
+    
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  &__item {
+    padding: $spacing-unit;
+    border-radius: $border-radius;
+    background-color: white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: transform $transition-speed;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  
+  &__icon {
+    font-size: 2.5rem;
+    color: $primary-color;
+    margin-bottom: $spacing-unit;
+  }
+  
+  &__item-title {
+    font-size: 1.25rem;
+    margin-bottom: $spacing-unit/2;
+  }
+  
+  &__description {
+    font-size: 0.95rem;
+    color: $dark-gray;
+  }
+}
+
+// Bottle carousel
+.bottle-carousel {
+  @include section-padding;
+  background-color: $light-gray;
+  
+  &__container {
+    @include container;
+    text-align: center;
+  }
+  
+  &__title {
+    font-size: 2rem;
+    margin-bottom: $spacing-unit*2;
+  }
+  
+  &__wrapper {
+    position: relative;
+    padding: $spacing-unit 0;
+  }
+  
+  &__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: $spacing-unit;
+    
+    img {
+      max-height: 300px;
+      margin-bottom: $spacing-unit;
+      transition: transform $transition-speed;
+      
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+  
+  &__name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: $spacing-unit/4;
+  }
+  
+  &__price {
+    font-size: 1.1rem;
+    color: $primary-color;
+    font-weight: 700;
+  }
+  
+  &__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 10;
+    
+    &--prev {
+      left: -20px;
+    }
+    
+    &--next {
+      right: -20px;
+    }
+  }
+}
+
+// Zigzag section
+.zigzag {
+  @include section-padding;
+  
+  &__container {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-unit*2;
+    
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  
+  &--reverse {
+    .zigzag__container {
+      @media (min-width: $breakpoint-md) {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+  
+  &__content {
+    flex: 1;
+    
+    @media (min-width: $breakpoint-md) {
+      flex: 0 0 50%;
+    }
+  }
+  
+  &__media {
+    flex: 1;
+    overflow: hidden;
+    border-radius: $border-radius;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    
+    @media (min-width: $breakpoint-md) {
+      flex: 0 0 50%;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s;
+      
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+  
+  &__title {
+    font-size: 1.75rem;
+    margin-bottom: $spacing-unit;
+    
+    @media (min-width: $breakpoint-md) {
+      font-size: 2rem;
+    }
+  }
+  
+  &__description {
+    font-size: 1rem;
+    color: $dark-gray;
+    margin-bottom: $spacing-unit;
+    
+    @media (min-width: $breakpoint-md) {
+      font-size: 1.1rem;
+    }
+  }
+}
