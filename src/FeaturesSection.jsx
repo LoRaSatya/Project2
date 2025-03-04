@@ -1,5 +1,5 @@
 import React from 'react';
-import './FeaturesSection.scss';
+import './FeaturesSection.css';
 import { FaRuler, FaRecycle, FaTruck, FaLeaf } from 'react-icons/fa';
 
 const FeaturesSection = () => {

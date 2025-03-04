@@ -1,5 +1,5 @@
 import React from 'react';
-import './ZigzagSection.scss';
+import './ZigzagSection.css';
 
 const ZigzagSection = ({ title, description, image, imageAlt, reverse }) => {
   return (

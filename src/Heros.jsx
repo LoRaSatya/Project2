@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import './Hero.scss';
+import './Hero.css';
 
 const Hero = () => {
   const textRef = useRef(null);

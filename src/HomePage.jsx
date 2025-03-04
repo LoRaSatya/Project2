@@ -3,7 +3,7 @@ import Hero from './Heros';
 import FeaturesSection from './FeaturesSection';
 import BottleCarousel from './BottleCarousel';
 import ZigzagSection from './ZigzagSection';
-import './HomePage.scss';
+import './HomePage.css';
 
 const HomePage = () => {
   useEffect(() => {
